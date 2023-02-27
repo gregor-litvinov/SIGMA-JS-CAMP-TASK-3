@@ -11,30 +11,50 @@ arr([1, 2, 3, -4]); // вернет 7, потому что: 3 - (-4) == 7
 arr([16]) => 0
 */
 
-let arr = [-1, 2, 3, -4];
+const arr = [-1, 2, 3, -4];
 
 let fun = function (a) {
   let min = a[0];
   let max = a[0];
 
-    if (a.length <= 1) {
-      return 0;
+  if (a.length <= 1) {
+    return 0;
+  }
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] < min) {
+      min = a[i];
     }
 
-    for(let i = 0; i < a.length; i++ ) {
-      if (a[i] < min) {
-        min = a[i];
-      }
-
-      if (a[i] > max) {
-         max = a[i];
-      }
+    if (a[i] > max) {
+      max = a[i];
     }
+  }
 
-    return max - min
+  return max - min;
 };
 
-fun(arr)
+console.log(fun(arr));
 
 
 
+
+
+// LODASH
+
+// const _ = require("lodash");
+
+// const arr = [-1, 2, 3, -4];
+
+// const fun = function (a) {
+//   if (a.length <= 1) {
+//     return 0;
+//   }
+
+//   const min = _.min(a);
+//   const max = _.max(a);
+
+//   return max - min;
+// };
+
+// console.log(fun(arr));
